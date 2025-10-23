@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, AlertTriangle, CheckCircle, XCircle, TrendingUp, DollarSign, Activity, LogOut } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || "https://payshield-fraud-detection-app.onrender.com";
 
 function TestingUI({onLogout}) {
   const [formData, setFormData] = useState({

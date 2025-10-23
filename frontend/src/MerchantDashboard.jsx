@@ -28,7 +28,7 @@ function MerchantDashboard() {
 
 
   const fetchDashboardData = async () => {
-    const apiUrl = 'http://localhost:8000';
+    const apiUrl= import.meta.env.VITE_API_URL || "https://payshield-fraud-detection-app.onrender.com";
     
     try {
       // Fetch stats (no auth required)

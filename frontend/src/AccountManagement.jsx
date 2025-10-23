@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CreditCard, Plus, Trash2, Check, X, Shield } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || "https://payshield-fraud-detection-app.onrender.com";
 
 function AccountManagement({ userEmail }) {
   const [accounts, setAccounts] = useState([]);
