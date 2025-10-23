@@ -510,7 +510,7 @@ async def calculate_transaction_score(request: TransactionScoreRequest):
         elif ml_score > 0.5:
             # Business rules say SAFE (< 0.3) but ML suspicious (> 0.5)
             # Use weighted average: trust business rules MORE (60%) than ML 40%)
-            final_score = (rule_score * 0.7) + (ml_score * 0.3)
+            final_score = (rule_score * 0.6) + (ml_score * 0.4)
             print(f"⚙️ Weighted scoring: Business rules safe (rule={rule_score:.3f}), ML suspicious (ml={ml_score:.3f}) → final={final_score:.3f}")
         
         else:
@@ -760,7 +760,7 @@ async def process_enhanced_transaction(
         elif ml_score > 0.5:
             # Business rules say SAFE (< 0.3) but ML suspicious (> 0.5)
             # Use weighted average: trust business rules MORE 60%) than ML (40%)
-            final_score = (rule_score * 0.7) + (ml_score * 0.3)
+            final_score = (rule_score * 0.6) + (ml_score * 0.4)
             print(f"⚙️ Weighted scoring: Business rules safe (rule={rule_score:.3f}), ML suspicious (ml={ml_score:.3f}) → final={final_score:.3f}")
         
         else:
