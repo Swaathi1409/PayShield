@@ -7,7 +7,7 @@ import {
 } from 'firebase/auth';
 import { auth } from './firebase';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_URL ='https://payshield-fraud-detection-app.onrender.com';
 
 // Fetch user from backend MongoDB
 const fetchUserFromBackend = async (email, firebaseUid) => {
