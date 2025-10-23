@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CreditCard, Lock, Shield, AlertTriangle, CheckCircle, LogOut, Users, Plus, DollarSign, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || "https://payshield-fraud-detection-app.onrender.com";
 
 function EnhancedPaymentWidget({ currentUser, onLogout }) {
   const [accounts, setAccounts] = useState([]);

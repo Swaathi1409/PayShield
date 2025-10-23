@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Activity, AlertCircle, DollarSign, TrendingUp, Users, CreditCard, LogOut, Clock, CheckCircle, XCircle, RefreshCw, Check, X } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || "https://payshield-fraud-detection-app.onrender.com";
 
 function AdminDashboard({ onLogout, userEmail }) {
   const [stats, setStats] = useState(null);
