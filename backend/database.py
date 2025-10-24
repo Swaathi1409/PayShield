@@ -67,7 +67,7 @@ def init_database():
                 "email": "customer@test.com",
                 "role": "customer",
                 "name": "Customer User",
-                "balance": 300000.00,
+                "balance": 100000.00,
                 "created_at": datetime.utcnow()
             },
             {
