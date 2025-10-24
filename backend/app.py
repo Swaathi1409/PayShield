@@ -251,13 +251,26 @@ async def create_user(user_data: UserCreate):
 @app.post("/api/user/by-email")
 async def get_user_by_email(request: UserByEmail):
     try:
+        # Find user by email only
         user = await users_collection.find_one({"email": request.email})
         
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
         
+        # Convert ObjectId to string
         user["_id"] = str(user["_id"])
+        
+        # Update firebase_uid if missing or different (only during login flow)
+        # This is acceptable because Firebase already authenticated the user
+        if request.firebase_uid and (not user.get("firebase_uid") or user.get("firebase_uid") != request.firebase_uid):
+            await users_collection.update_one(
+                {"email": request.email},
+                {"$set": {"firebase_uid": request.firebase_uid}}
+            )
+            user["firebase_uid"] = request.firebase_uid
+        
         return user
+        
     except HTTPException:
         raise
     except Exception as e:
